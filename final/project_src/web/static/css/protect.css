@@ -1,0 +1,32 @@
+html,body{
+    height: 85%;
+    min-width: 960px;
+}
+body{
+    background-image: url(../images/bg1.jpg);
+    text-align: center;
+    font-family: "microsoft yahei";
+    -webkit-background-size: 120%;
+    *background-size: 120%;
+    color: #222;
+}
+.info-box{
+    width: 470px;
+    padding:0 0 35px 0;
+    color: #666;
+    border-radius: 4px;
+    background: rgb(245,245,245);
+    margin: 135px auto 175px auto;
+    position: relative;
+}
+.info-title{
+    width: 100%;
+    height: 62px;
+    line-height: 62px;
+    margin-bottom: 35px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: #FFF;
+    background:#4169E1;
+    text-align: center;
+}

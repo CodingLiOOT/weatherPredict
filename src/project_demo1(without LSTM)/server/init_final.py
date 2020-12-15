@@ -1,0 +1,49 @@
+# coding=utf-8
+import json
+import asyncio
+import websockets
+
+
+async def recv_msg(websocket):
+    while True:
+        data = await websocket.recv()
+        print(data)
+        # predict_csv(data, 7)
+        # csv_to_json(data)
+
+        filename = data + '.txt'  # 此处为文件名
+        # directory = 'prediction/'  # 此处为文件路径
+
+        message = 'error'  # 该变量为最终发送信息
+
+        try:
+            if data =='shanghai':
+                print(data=='shanghai')
+                f=open('shanghai.txt',mode='r')
+                strs = f.readlines()
+                f.close()
+                for txt in strs:
+                    print(txt)
+                    await websocket.send(txt)
+            elif data =='beijing':
+                f = open('beijing.txt', mode='r')
+                strs = f.readlines()
+                f.close()
+                for txt in strs:
+                    print(txt)
+                    await websocket.send(txt)
+        except:
+            message = 'NO_EXISTENCE'
+
+
+# 服务器端主逻辑
+async def main_logic(websocket, path):
+    # await check_permit(websocket)
+
+    await recv_msg(websocket)
+
+
+if __name__ == '__main__':
+    start_server = websockets.serve(main_logic, '127.0.0.1', 8765)
+    asyncio.get_event_loop().run_until_complete(start_server)
+    asyncio.get_event_loop().run_forever()

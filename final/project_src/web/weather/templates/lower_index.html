@@ -1,0 +1,88 @@
+{% load static %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>天气预报</title>
+    <meta name="author" content="zzh" />
+    <link rel="stylesheet" href="{% static 'css/weather.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+    <script type = "text/javascript">
+
+        var weather = {{Weather|safe}};
+
+
+    </script>
+
+</head>
+<body>
+<header>
+
+    <h1>气温预报</h1>
+    <div id="weather_search">
+        <span><button type="button" class="button" onclick="logout()">注销 </button></span>
+    </div>
+</header>
+<section>
+    <div id="today_container">
+        <div>
+            <img src="{% static 'images/weather_icon/temp.jpg' %}" alt="今日气温" width="60" height="60"/>
+        </div>
+        <div>
+            <div class="main_info"><span class="info">北京</span>|<span class="info">202X-XX-XX</span>|<span class="info">星期X</span> </div>
+        </div>
+    </div>
+    <div id="future_container">
+        <div class="future_box">
+            <span class="future_info">202X-XX-XX</span>
+            <span class="future_info">星期X</span>
+            <span class="future_info">12-16℃</span>
+        </div>
+        <div class="future_box">
+            <span class="future_info">202X-XX-XX</span>
+            <span class="future_info">星期X</span>
+            <span class="future_info">12-16℃</span>
+        </div>
+        <div class="future_box">
+            <span class="future_info">202X-XX-XX</span>
+            <span class="future_info">星期X</span>
+            <span class="future_info">12-16℃</span>
+        </div>
+        <div class="future_box">
+            <span class="future_info">202X-XX-XX</span>
+            <span class="future_info">星期X</span>
+            <span class="future_info">12-16℃</span>
+        </div>
+        <div class="future_box">
+            <span class="future_info">202X-XX-XX</span>
+            <span class="future_info">星期X</span>
+            <span class="future_info">12-16℃</span>
+        </div>
+        <div class="future_box">
+            <span class="future_info">202X-XX-XX</span>
+            <span class="future_info">星期X</span>
+            <span class="future_info">12-16℃</span>
+        </div>
+        <div class="future_box">
+            <span class="future_info">202X-XX-XX</span>
+            <span class="future_info">星期X</span>
+            <span class="future_info">12-16℃</span>
+        </div>
+    </div>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="chart" style="background-color: #C6C6C6;height: 300px;width:900px;"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        init();
+        drawChart();
+    </script>
+        </section>
+
+    <footer>
+        <div>
+            Powered by Harry Zhou.
+        </div>
+    </footer>
+
+</body>
+</html>
